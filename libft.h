@@ -13,10 +13,9 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>// write
-# include <stdlib.h>// malloc free
+# include <unistd.h>// close read write
+# include <stdlib.h>// exit malloc free size_t
 # include <stdarg.h>// va_start va_arg va_copy va_end
-# include <stddef.h>// size_t 
 
 typedef struct s_list
 {
