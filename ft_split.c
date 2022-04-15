@@ -12,7 +12,21 @@
 
 #include "libft.h"
 
-int	ft_count(char const *s, char c)
+char	**ft_split_free(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (NULL);
+}
+
+int	ft_split_count(char const *s, char c)
 {
 	int	i;
 	int	j;
@@ -35,7 +49,7 @@ int	ft_count(char const *s, char c)
 	return (r);
 }
 
-int	ft_len(char const *s, char c, int i)
+int	ft_split_len(char const *s, char c, int i)
 {
 	int	j;
 
@@ -50,23 +64,23 @@ int	ft_len(char const *s, char c, int i)
 	return (j);
 }
 
-char	*ft_input(char const *s, char c, int i)
+char	*ft_split_input(char const *s, char c, int i)
 {
 	int		j;
-	char	*word;
+	char	*res;
 
-	word = malloc(sizeof(char) * (ft_len(s, c, i) + 1));
-	if (!word)
+	res = malloc(sizeof(char) * (ft_split_len(s, c, i) + 1));
+	if (!res)
 		return (NULL);
 	j = 0;
 	while (s[i] && s[i] != c)
 	{
-		word[j] = s[i];
+		res[j] = s[i];
 		i++;
 		j++;
 	}
-	word[j] = '\0';
-	return (word);
+	res[j] = '\0';
+	return (res);
 }
 
 char	**ft_split(char const *s, char c)
@@ -75,9 +89,7 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	char	**res;
 
-	if (!s)
-		return (NULL);
-	res = malloc(sizeof(char *) * (ft_count(s, c) + 1));
+	res = malloc(sizeof(char *) * (ft_split_count(s, c) + 1));
 	if (!res)
 		return (NULL);
 	j = 0;
@@ -87,9 +99,11 @@ char	**ft_split(char const *s, char c)
 		while (s[i] == c)
 			i++;
 		if (s[i])
-			res[j] = ft_input(s, c, i);
+			res[j] = ft_split_input(s, c, i);
 		else
 			break ;
+		if (!res[j])
+			return (ft_split_free(res));
 		while (s[i] && s[i] != c)
 			i++;
 		j++;

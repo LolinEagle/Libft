@@ -31,7 +31,7 @@ char	*ft_read(int fd, char *tmp)
 			return (NULL);
 		}
 		buff[i] = '\0';
-		tmp = ft_strjoin_gnl(tmp, buff);
+		tmp = ft_strjoin_free(tmp, buff);
 	}
 	free(buff);
 	return (tmp);

@@ -63,3 +63,22 @@ char	*ft_itoa(int n)
 		res[0] = '-';
 	return (res);
 }
+
+char	*ft_utoa(unsigned int n)
+{
+	int		i;
+	char	*res;
+
+	i = ft_dsize(n);
+	res = malloc(sizeof(char) * (i + 1));
+	if (!res)
+		return (NULL);
+	res[i] = '\0';
+	while (i > 0)
+	{
+		i--;
+		res[i] = '0' + (n % 10);
+		n = n / 10;
+	}
+	return (res);
+}
