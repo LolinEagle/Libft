@@ -98,17 +98,18 @@ char	*ft_strdup(const char *s);
 /* **********************************LIBFT*********************************** */
 
 // ft_substr.c				2 functions
+size_t	ft_subsize(char const *s, unsigned int start, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 // ft_strjoin.c				2 functions
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strjoin_free(char *s1, char *s2);
+char	*ft_strjoin_free(char *s1, char const *s2);
 
 // ft_strtrim.c				1 functions
 char	*ft_strtrim(char const *s1, char const *set);
 
 // ft_split.c				5 functions
-char	**ft_split_free(char *str);
+char	**ft_split_free(char **str);
 int		ft_split_count(char const *s, char c);
 int		ft_split_len(char const *s, char c, int i);
 char	*ft_split_input(char const *s, char c, int i);
@@ -170,6 +171,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 /* ******************************GET_NEXT_LINE******************************* */
 
 // get_next_line.c			4 functions
+char	*ft_read(int fd, char *tmp);
+char	*ft_get_line(char *tmp);
+char	*ft_save(char *tmp);
 char	*get_next_line(int fd);
 
 /* ********************************FT_PRINTF********************************* */
@@ -182,6 +186,7 @@ int		ft_printf_ptr(long unsigned int ptr);
 int		ft_printf_uns(va_list list);
 
 // ft_printf.c				2 functions
+int		ft_conversion(char str, va_list list);
 int		ft_printf(const char *str, ...);
 
 #endif
