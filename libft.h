@@ -101,9 +101,11 @@ char	*ft_strdup(const char *s);
 size_t	ft_subsize(char const *s, unsigned int start, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
-// ft_strjoin.c				2 functions
+// ft_strjoin.c				4 functions
+size_t	ft_joinstr(char const *s, char *str, int i);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strjoin_free(char *s1, char const *s2);
+char	*ft_strjoin_long(char *s1, char *s2, char *s3, char *s4);
 
 // ft_strtrim.c				1 functions
 char	*ft_strtrim(char const *s1, char const *set);
