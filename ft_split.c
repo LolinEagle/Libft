@@ -22,9 +22,11 @@ char	**ft_split_free(char **str)
 	while (str[i])
 	{
 		free(str[i]);
+		str[i] = NULL;
 		i++;
 	}
 	free(str);
+	str = NULL;
 	return (NULL);
 }
 
