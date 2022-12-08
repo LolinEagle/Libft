@@ -178,17 +178,4 @@ char	*ft_get_line(char *tmp);
 char	*ft_save(char *tmp);
 char	*get_next_line(int fd);
 
-/* ********************************FT_PRINTF********************************* */
-
-// ft_printf_utils.c		5 functions
-int		ft_printf_put(char *s);
-int		ft_printf_int(va_list list);
-int		ft_printf_hex(long unsigned int hex, char c);
-int		ft_printf_ptr(long unsigned int ptr);
-int		ft_printf_uns(va_list list);
-
-// ft_printf.c				2 functions
-int		ft_conversion(char str, va_list list);
-int		ft_printf(const char *str, ...);
-
 #endif
